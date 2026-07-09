@@ -203,7 +203,6 @@ jobs:
       - setversion
       - build
       - sonar
-      - create-tag
 
     if: |
       github.event_name == 'push' ||
