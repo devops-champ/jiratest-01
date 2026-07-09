@@ -1,0 +1,20 @@
+apiVersion: backstage.io/v1alpha1
+kind: Component
+metadata:
+  name: jiratest-01
+  description: Sample service with CI/CD
+  annotations:
+    github.com/project-slug: devops-champ/jiratest-01
+    backstage.io/techdocs-ref: dir:.
+    sonarqube.org/project-key: devops-champ_jiratest-01
+    roadie-backstage-pull-requests/default-filter: "is:open is:pr"
+    platform.io/argocd-dev: jiratest-01-dev
+    platform.io/argocd-qa: jiratest-01-qa
+    platform.io/argocd-prod: jiratest-01-prod
+spec:
+  type: service
+  lifecycle: experimental
+  owner: group:default/platform-team
+  dependsOn:
+    - resource:default/orders-db
+    - resource:default/kafka-cluster
